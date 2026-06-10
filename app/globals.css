@@ -39,6 +39,16 @@ body {
   text-rendering: geometricPrecision;
 }
 
+html[data-loading="true"],
+html:has([data-loading-screen]) {
+  overflow: hidden;
+}
+
+html[data-loading="true"] body,
+body:has([data-loading-screen]) {
+  overflow: hidden;
+}
+
 ::selection {
   background: rgba(137, 170, 204, 0.28);
   color: var(--text);

@@ -49,19 +49,11 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
 
   return (
     <motion.div
+      data-loading-screen
       className="fixed inset-0 z-[9999] overflow-hidden bg-bg"
       exit={{ opacity: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
     >
-      <motion.div
-        className="absolute left-8 top-8 text-xs uppercase tracking-[0.3em] text-muted md:left-12 md:top-12 md:text-sm"
-        initial={{ y: -20, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
-      >
-        Portfolio
-      </motion.div>
-
       <div className="absolute inset-0 flex items-center justify-center px-8 text-center">
         <AnimatePresence mode="wait">
           <motion.p

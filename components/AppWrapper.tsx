@@ -1,7 +1,13 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { ReactNode, useEffect, useMemo, useState } from "react";
+import {
+  ReactNode,
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  useState
+} from "react";
 import LoadingScreen from "@/components/LoadingScreen";
 
 const HERO_MEDIA_READY_EVENT = "portfolio-hero-media-ready";
@@ -44,6 +50,28 @@ export default function AppWrapper({ children }: AppWrapperProps) {
         window.dispatchEvent(new Event(PAGE_VISIBLE_EVENT));
       });
     }
+  }, [isLoading]);
+
+  useLayoutEffect(() => {
+    const { documentElement, body } = document;
+    const previousHtmlOverflow = documentElement.style.overflow;
+    const previousBodyOverflow = body.style.overflow;
+
+    if (isLoading) {
+      documentElement.dataset.loading = "true";
+      documentElement.style.overflow = "hidden";
+      body.style.overflow = "hidden";
+    } else {
+      delete documentElement.dataset.loading;
+      documentElement.style.overflow = previousHtmlOverflow;
+      body.style.overflow = previousBodyOverflow;
+    }
+
+    return () => {
+      delete documentElement.dataset.loading;
+      documentElement.style.overflow = previousHtmlOverflow;
+      body.style.overflow = previousBodyOverflow;
+    };
   }, [isLoading]);
 
   return (
