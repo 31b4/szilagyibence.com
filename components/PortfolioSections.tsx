@@ -73,7 +73,7 @@ export default function PortfolioSections() {
         />
 
         <div className="relative mx-auto max-w-6xl px-6 md:px-10">
-          <div className="absolute bottom-6 left-[2.05rem] top-2 w-px bg-gradient-to-b from-transparent via-white/15 to-transparent md:left-[15.25rem]" />
+          <div className="absolute bottom-6 left-[2.05rem] top-2 w-px bg-gradient-to-b from-transparent via-white/15 to-transparent md:left-[17rem]" />
           {experience.map((item, index) => (
             <article
               key={item.company}
@@ -82,9 +82,6 @@ export default function PortfolioSections() {
               <div className="hidden pt-1 text-right md:block">
                 <p className="font-body text-sm uppercase leading-relaxed tracking-[0.24em] text-white/45">
                   {item.dates}
-                </p>
-                <p className="mt-3 text-xs uppercase tracking-[0.18em] text-white/25">
-                  {index === 0 ? "Now" : `0${index + 1}`}
                 </p>
               </div>
 
@@ -125,9 +122,6 @@ export default function PortfolioSections() {
                             <h3 className="font-display text-3xl italic leading-none text-text md:text-4xl">
                               {item.company}
                             </h3>
-                            <span className="rounded-full border border-white/10 px-3 py-1 text-[11px] uppercase tracking-[0.18em] text-white/50">
-                              {item.status}
-                            </span>
                           </div>
                           <p className="text-sm text-muted">{item.role}</p>
                           <p className="mt-2 text-xs uppercase tracking-[0.2em] text-white/35 md:hidden">

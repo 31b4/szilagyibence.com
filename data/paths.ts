@@ -1,6 +1,37 @@
-export const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
-export const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://new.szilagyibence.com";
+const fallbackSiteUrl = "https://new.szilagyibence.com";
+
+function normalizeBasePath(value: string | undefined) {
+  const trimmed = value?.trim();
+
+  if (!trimmed || trimmed === "/") {
+    return "";
+  }
+
+  const withLeadingSlash = trimmed.startsWith("/") ? trimmed : `/${trimmed}`;
+
+  return withLeadingSlash.replace(/\/+$/, "");
+}
+
+function normalizeSiteUrl(value: string | undefined) {
+  const trimmed = value?.trim();
+
+  if (!trimmed) {
+    return fallbackSiteUrl;
+  }
+
+  const withProtocol = /^https?:\/\//i.test(trimmed)
+    ? trimmed
+    : `https://${trimmed}`;
+
+  try {
+    return new URL(withProtocol).origin;
+  } catch {
+    return fallbackSiteUrl;
+  }
+}
+
+export const basePath = normalizeBasePath(process.env.NEXT_PUBLIC_BASE_PATH);
+export const siteUrl = normalizeSiteUrl(process.env.NEXT_PUBLIC_SITE_URL);
 
 export function assetPath(path: `/${string}`) {
   return `${basePath}${path}`;
