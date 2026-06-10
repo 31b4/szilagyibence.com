@@ -13,6 +13,17 @@ import LoadingScreen from "@/components/LoadingScreen";
 const HERO_MEDIA_READY_EVENT = "portfolio-hero-media-ready";
 const PAGE_VISIBLE_EVENT = "portfolio-page-visible";
 const HERO_MEDIA_TIMEOUT_MS = 8000;
+const SCROLL_KEYS = new Set([
+  " ",
+  "ArrowDown",
+  "ArrowLeft",
+  "ArrowRight",
+  "ArrowUp",
+  "End",
+  "Home",
+  "PageDown",
+  "PageUp"
+]);
 
 type AppWrapperProps = {
   children: ReactNode;
@@ -56,11 +67,20 @@ export default function AppWrapper({ children }: AppWrapperProps) {
     const { documentElement, body } = document;
     const previousHtmlOverflow = documentElement.style.overflow;
     const previousBodyOverflow = body.style.overflow;
+    const preventScroll = (event: Event) => event.preventDefault();
+    const preventScrollKeys = (event: KeyboardEvent) => {
+      if (SCROLL_KEYS.has(event.key)) {
+        event.preventDefault();
+      }
+    };
 
     if (isLoading) {
       documentElement.dataset.loading = "true";
       documentElement.style.overflow = "hidden";
       body.style.overflow = "hidden";
+      window.addEventListener("wheel", preventScroll, { passive: false });
+      window.addEventListener("touchmove", preventScroll, { passive: false });
+      window.addEventListener("keydown", preventScrollKeys);
     } else {
       delete documentElement.dataset.loading;
       documentElement.style.overflow = previousHtmlOverflow;
@@ -68,6 +88,9 @@ export default function AppWrapper({ children }: AppWrapperProps) {
     }
 
     return () => {
+      window.removeEventListener("wheel", preventScroll);
+      window.removeEventListener("touchmove", preventScroll);
+      window.removeEventListener("keydown", preventScrollKeys);
       delete documentElement.dataset.loading;
       documentElement.style.overflow = previousHtmlOverflow;
       body.style.overflow = previousBodyOverflow;
