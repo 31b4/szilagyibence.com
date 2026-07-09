@@ -1,4 +1,4 @@
-const fallbackSiteUrl = "https://new.szilagyibence.com";
+const fallbackSiteUrl = "https://szilagyibence.com";
 
 function normalizeBasePath(value: string | undefined) {
   const trimmed = value?.trim();

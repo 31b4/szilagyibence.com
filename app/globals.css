@@ -3,22 +3,22 @@
 @tailwind utilities;
 
 :root {
-  --bg: #050506;
-  --surface: #101114;
-  --surface-light: #f5f5f7;
-  --text: #f5f5f7;
-  --muted: #a1a1a6;
-  --accent: #69d9ff;
-  --stroke: #2a2b2f;
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --surface-light: #eef3f8;
+  --text: #172033;
+  --muted: #607289;
+  --accent: #1766ad;
+  --stroke: #d9e2eb;
   --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Helvetica, Arial, sans-serif;
   --font-mono: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Helvetica, Arial, sans-serif;
 
-  --bg-rgb: 5 5 6;
-  --surface-rgb: 16 17 20;
-  --text-rgb: 245 245 247;
-  --muted-rgb: 161 161 166;
-  --accent-rgb: 105 217 255;
-  --stroke-rgb: 42 43 47;
+  --bg-rgb: 248 250 252;
+  --surface-rgb: 255 255 255;
+  --text-rgb: 23 32 51;
+  --muted-rgb: 96 114 137;
+  --accent-rgb: 23 102 173;
+  --stroke-rgb: 217 226 235;
 }
 
 * {
@@ -43,8 +43,8 @@ body {
 }
 
 ::selection {
-  background: rgba(105, 217, 255, 0.35);
-  color: #fff;
+  background: rgba(99, 181, 244, 0.3);
+  color: #172033;
 }
 
 a {
@@ -68,7 +68,7 @@ button {
 }
 
 :focus-visible {
-  outline: 2px solid #69d9ff;
+  outline: 2px solid #1766ad;
   outline-offset: 4px;
 }
 
@@ -84,8 +84,8 @@ footer[id] {
   z-index: 100;
   padding: 0.75rem 1rem;
   border-radius: 0.5rem;
-  background: #fff;
-  color: #050506;
+  background: #172033;
+  color: #fff;
   font-size: 0.8rem;
   font-weight: 700;
   transform: translateY(-180%);
@@ -97,8 +97,8 @@ footer[id] {
 }
 
 .hero-halo {
-  background: radial-gradient(circle, rgba(40, 110, 255, 0.28) 0%, rgba(5, 5, 6, 0) 68%);
-  filter: blur(8px);
+  background: radial-gradient(circle, rgba(101, 177, 246, 0.26) 0%, rgba(248, 250, 252, 0) 68%);
+  filter: blur(10px);
 }
 
 .reveal {
@@ -160,5 +160,7 @@ footer[id] {
     transition-duration: 0.01ms !important;
   }
 
-  .reveal { animation: none !important; }
+  .reveal {
+    animation: none !important;
+  }
 }

@@ -98,10 +98,10 @@ export default function CardContent({
     <>
       <main className="flex min-h-screen items-center justify-center p-4">
         <section className="w-full max-w-3xl">
-          <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-b from-zinc-900/60 to-black shadow-2xl">
+          <div className="relative overflow-hidden rounded-2xl border border-[#d9e2eb] bg-gradient-to-b from-white to-[#eef3f8] shadow-[0_20px_50px_rgba(40,64,94,0.1)]">
             <div className="pointer-events-none absolute inset-0" aria-hidden="true">
-              <div className="absolute -left-32 -top-32 h-64 w-64 rounded-full bg-blue-600/20 blur-3xl" />
-              <div className="absolute -bottom-32 -right-32 h-64 w-64 rounded-full bg-cyan-400/10 blur-3xl" />
+              <div className="absolute -left-32 -top-32 h-64 w-64 rounded-full bg-blue-400/15 blur-3xl" />
+              <div className="absolute -bottom-32 -right-32 h-64 w-64 rounded-full bg-cyan-300/20 blur-3xl" />
             </div>
 
             <div className="relative p-6 sm:p-10">
@@ -110,18 +110,18 @@ export default function CardContent({
                   <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
                     Bence Szilágyi
                   </h1>
-                  <p className="mt-1 text-sm text-gray-400 sm:text-base">
+                  <p className="mt-1 text-sm text-[#607289] sm:text-base">
                     Software Engineer • Product Builder
                   </p>
                 </div>
                 <button
                   type="button"
                   onClick={openModal}
-                  className="group hidden items-center gap-3 text-blue-400/90 transition hover:text-blue-300 sm:flex"
+                  className="group hidden items-center gap-3 text-[#1766ad] transition hover:text-[#123f73] sm:flex"
                   aria-label="Show QR code"
                 >
                   <QrCode className="h-9 w-9 sm:h-10 sm:w-10" aria-hidden="true" />
-                  <span className="text-xs text-gray-400 group-hover:text-gray-300 sm:text-sm">
+                  <span className="text-xs text-[#607289] group-hover:text-[#40516a] sm:text-sm">
                     {cardUrlLabel}
                   </span>
                 </button>
@@ -130,15 +130,15 @@ export default function CardContent({
               <div className="mt-6 grid grid-cols-1 gap-3 sm:mt-8 sm:grid-cols-2">
                 <a
                   href="tel:+36202670538"
-                  className="group flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 px-4 py-3 transition hover:border-blue-500/40 hover:bg-blue-500/10"
+                  className="group flex items-center gap-3 rounded-xl border border-[#d9e2eb] bg-white/80 px-4 py-3 transition hover:border-[#91badd] hover:bg-[#f3f8fd]"
                   aria-label="Call"
                 >
                   <Phone
-                    className="h-5 w-5 text-blue-400 group-hover:text-blue-300"
+                    className="h-5 w-5 text-[#1766ad] group-hover:text-[#123f73]"
                     aria-hidden="true"
                   />
                   <div>
-                    <div className="text-xs uppercase tracking-wide text-gray-400">
+                    <div className="text-xs uppercase tracking-wide text-[#607289]">
                       Phone
                     </div>
                     <div className="text-sm sm:text-base">+36 20 267 0538</div>
@@ -146,15 +146,15 @@ export default function CardContent({
                 </a>
                 <a
                   href={`mailto:${email}`}
-                  className="group flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 px-4 py-3 transition hover:border-blue-500/40 hover:bg-blue-500/10"
+                  className="group flex items-center gap-3 rounded-xl border border-[#d9e2eb] bg-white/80 px-4 py-3 transition hover:border-[#91badd] hover:bg-[#f3f8fd]"
                   aria-label="Email"
                 >
                   <Mail
-                    className="h-5 w-5 text-blue-400 group-hover:text-blue-300"
+                    className="h-5 w-5 text-[#1766ad] group-hover:text-[#123f73]"
                     aria-hidden="true"
                   />
                   <div>
-                    <div className="text-xs uppercase tracking-wide text-gray-400">
+                    <div className="text-xs uppercase tracking-wide text-[#607289]">
                       Email
                     </div>
                     <div className="text-sm sm:text-base">{email}</div>
@@ -167,10 +167,10 @@ export default function CardContent({
                   href={siteUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 px-4 py-3 transition hover:border-white/20"
+                  className="group flex items-center gap-3 rounded-xl border border-[#d9e2eb] bg-white/80 px-4 py-3 transition hover:border-[#91badd] hover:bg-[#f3f8fd]"
                 >
                   <Globe2
-                    className="h-5 w-5 text-gray-300 group-hover:text-white"
+                    className="h-5 w-5 text-[#607289] group-hover:text-[#1766ad]"
                     aria-hidden="true"
                   />
                   <span className="text-sm">Website</span>
@@ -179,10 +179,10 @@ export default function CardContent({
                   href="https://x.com/31b4_"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 px-4 py-3 transition hover:border-white/20"
+                  className="group flex items-center gap-3 rounded-xl border border-[#d9e2eb] bg-white/80 px-4 py-3 transition hover:border-[#91badd] hover:bg-[#f3f8fd]"
                 >
                   <span
-                    className="grid h-5 w-5 place-items-center text-xl leading-none text-gray-300 group-hover:text-white"
+                    className="grid h-5 w-5 place-items-center text-xl leading-none text-[#607289] group-hover:text-[#1766ad]"
                     aria-hidden="true"
                   >
                     X
@@ -193,10 +193,10 @@ export default function CardContent({
                   href="https://github.com/31b4"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 px-4 py-3 transition hover:border-white/20"
+                  className="group flex items-center gap-3 rounded-xl border border-[#d9e2eb] bg-white/80 px-4 py-3 transition hover:border-[#91badd] hover:bg-[#f3f8fd]"
                 >
                   <Github
-                    className="h-5 w-5 text-gray-300 group-hover:text-white"
+                    className="h-5 w-5 text-[#607289] group-hover:text-[#1766ad]"
                     aria-hidden="true"
                   />
                   <span className="text-sm">GitHub</span>
@@ -205,10 +205,10 @@ export default function CardContent({
                   href="https://linkedin.com/in/benszilagyi/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 px-4 py-3 transition hover:border-white/20"
+                  className="group flex items-center gap-3 rounded-xl border border-[#d9e2eb] bg-white/80 px-4 py-3 transition hover:border-[#91badd] hover:bg-[#f3f8fd]"
                 >
                   <Linkedin
-                    className="h-5 w-5 text-gray-300 group-hover:text-white"
+                    className="h-5 w-5 text-[#607289] group-hover:text-[#1766ad]"
                     aria-hidden="true"
                   />
                   <span className="text-sm">LinkedIn</span>
@@ -219,15 +219,15 @@ export default function CardContent({
                 <button
                   type="button"
                   onClick={openModal}
-                  className="flex w-full items-center justify-center gap-3 rounded-xl border border-white/10 bg-white/5 px-4 py-3 transition hover:border-blue-500/40 hover:bg-blue-500/10"
+                  className="flex w-full items-center justify-center gap-3 rounded-xl border border-[#d9e2eb] bg-white/80 px-4 py-3 transition hover:border-[#91badd] hover:bg-[#f3f8fd]"
                   aria-label="Show QR code"
                 >
-                  <QrCode className="h-6 w-6 text-blue-400" aria-hidden="true" />
+                  <QrCode className="h-6 w-6 text-[#1766ad]" aria-hidden="true" />
                   <span className="text-sm">Show QR code</span>
                 </button>
               </div>
 
-              <footer className="mt-6 flex flex-col justify-between gap-4 text-xs text-gray-500 sm:mt-8 sm:flex-row sm:items-center">
+              <footer className="mt-6 flex flex-col justify-between gap-4 text-xs text-[#607289] sm:mt-8 sm:flex-row sm:items-center">
                 <span>Last updated: {lastUpdated}</span>
                 <div className="flex items-center gap-2">
                   <span className="inline-flex h-2 w-2 rounded-full bg-green-500/80" />
@@ -254,7 +254,7 @@ export default function CardContent({
               aria-modal="true"
               aria-labelledby="qr-dialog-title"
               tabIndex={-1}
-              className="relative w-full max-w-md rounded-2xl border border-white/10 bg-zinc-900/90 p-6 shadow-2xl"
+              className="relative w-full max-w-md rounded-2xl border border-[#d9e2eb] bg-white p-6 text-[#172033] shadow-2xl"
             >
               <h2 id="qr-dialog-title" className="sr-only">
                 QR code for this digital business card
@@ -263,7 +263,7 @@ export default function CardContent({
                 ref={closeButtonRef}
                 type="button"
                 onClick={closeModal}
-                className="absolute right-3 top-3 text-gray-400 hover:text-white"
+                className="absolute right-3 top-3 text-[#607289] hover:text-[#172033]"
                 aria-label="Close"
               >
                 <X className="h-5 w-5" aria-hidden="true" />
@@ -274,13 +274,13 @@ export default function CardContent({
                 <img
                   src={qrCodeUrl}
                   alt={`QR code to ${cardUrlLabel}`}
-                  className="h-64 w-64 rounded-md border border-white/10 bg-white p-2 sm:h-80 sm:w-80"
+                  className="h-64 w-64 rounded-md border border-[#d9e2eb] bg-white p-2 sm:h-80 sm:w-80"
                   loading="eager"
                   decoding="async"
                 />
                 <a
                   href={cardUrl}
-                  className="text-sm text-blue-400 hover:text-blue-300"
+                  className="text-sm text-[#1766ad] hover:text-[#123f73]"
                   target="_blank"
                   rel="noopener noreferrer"
                 >

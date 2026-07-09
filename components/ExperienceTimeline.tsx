@@ -1,157 +1,69 @@
-"use client";
-
 import Image from "next/image";
-import { useState } from "react";
+import { ArrowUpRight, Check } from "lucide-react";
 import { experience } from "@/data/content";
 
-const careerSpans = [
-  { index: 0, start: 0, end: 35, lane: "top" },
-  { index: 1, start: 35, end: 68, lane: "top" },
-  { index: 2, start: 68, end: 100, lane: "top" }
-] as const;
-
-const scale = [
-  { label: "2024", position: 0, alignment: "left" },
-  { label: "2025", position: 35, alignment: "center" },
-  { label: "2026", position: 68, alignment: "center" },
-  { label: "Now", position: 100, alignment: "right" }
-] as const;
-
-type RoleCardProps = {
-  item: (typeof experience)[number];
-  isActive: boolean;
-  onSelect: () => void;
-  className?: string;
-  style?: React.CSSProperties;
-};
-
-function RoleCard({ item, isActive, onSelect, className = "", style }: RoleCardProps) {
-  return (
-    <button
-      type="button"
-      onClick={onSelect}
-      aria-pressed={isActive}
-      style={style}
-      className={`group rounded-[22px] border p-6 text-left transition-[background-color,color,transform,box-shadow] duration-300 sm:p-7 ${className} ${
-        isActive
-          ? "border-[#101114] bg-[#101114] text-white shadow-[0_20px_42px_rgba(0,0,0,0.16)]"
-          : "border-black/10 bg-white text-[#141416] hover:-translate-y-1 hover:shadow-[0_18px_36px_rgba(0,0,0,0.08)]"
-      }`}
-    >
-      <p className={`text-xs font-semibold tracking-[-0.01em] ${isActive ? "text-white/55" : "text-black/45"}`}>
-        {item.dates}
-      </p>
-      <div className="mt-7 flex items-center gap-3">
-        <span className={`relative grid h-11 w-11 shrink-0 place-items-center overflow-hidden rounded-xl ${isActive ? "bg-white" : "bg-[#f5f5f7]"}`}>
-          <Image src={item.logo} alt="" fill sizes="44px" className="object-contain p-1.5" />
-        </span>
-        <span className="min-w-0">
-          <span className="block text-xl font-semibold tracking-[-0.045em]">{item.company}</span>
-          <span className={`mt-1 block text-sm leading-snug tracking-[-0.015em] ${isActive ? "text-white/60" : "text-black/55"}`}>
-            {item.role}
-          </span>
-        </span>
-      </div>
-      <span className={`mt-6 block max-w-xs text-sm leading-relaxed tracking-[-0.015em] ${isActive ? "text-white/70" : "text-black/60"}`}>
-        {item.summary}
-      </span>
-    </button>
-  );
-}
-
 export default function ExperienceTimeline() {
-  const [activeIndex, setActiveIndex] = useState(experience.length - 1);
-  const activeRole = experience[activeIndex] ?? experience[0];
-
   return (
-    <div>
-      <div className="md:hidden">
-        <div className="relative">
-          <div className="absolute left-6 top-8 h-[calc(100%-4rem)] w-px bg-black/15" aria-hidden="true" />
-          <div className="relative grid gap-4">
-            {experience.map((item, index) => {
-              const isActive = index === activeIndex;
-
-              return (
-                <div key={item.company} className="relative ml-7">
-                  <span
-                    className={`absolute -left-3 top-8 z-10 grid h-3.5 w-3.5 place-items-center rounded-full border-4 border-[#f5f5f7] ${
-                      isActive ? "bg-[#69d9ff]" : "bg-[#141416]"
-                    }`}
-                    aria-hidden="true"
-                  />
-                  <RoleCard item={item} isActive={isActive} onSelect={() => setActiveIndex(index)} />
-                </div>
-              );
-            })}
+    <ol className="relative space-y-6 before:absolute before:bottom-8 before:left-[1.03rem] before:top-8 before:w-px before:bg-[#b9c7d8] lg:space-y-8 lg:before:left-[10.55rem]">
+      {experience.map((role, index) => (
+        <li key={role.company} className="relative grid gap-4 pl-10 lg:grid-cols-[9rem_minmax(0,1fr)] lg:gap-8 lg:pl-0">
+          <div className="lg:pt-7 lg:text-right">
+            <p className="text-sm font-semibold tracking-[-0.02em] text-[#40516a]">{role.dates}</p>
+            {index === 0 ? (
+              <span className="mt-2 inline-flex rounded-full bg-[#ddecff] px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.08em] text-[#155a9c]">
+                Current
+              </span>
+            ) : null}
           </div>
-        </div>
-      </div>
 
-      <div className="hidden md:block">
-        <div className="relative h-[27rem]">
-          <div className="absolute left-0 right-0 top-9 h-px bg-black/15" aria-hidden="true" />
-          {scale.map((point) => (
-            <span
-              key={point.label}
-              style={{ left: `${point.position}%` }}
-              className={`absolute top-0 text-xs font-semibold tracking-[-0.01em] text-black/45 ${
-                point.alignment === "left"
-                  ? "translate-x-0"
-                  : point.alignment === "right"
-                    ? "-translate-x-full"
-                    : "-translate-x-1/2"
-              }`}
-            >
-              {point.label}
-            </span>
-          ))}
+          <span className="absolute left-0 top-7 z-10 grid h-[2.1rem] w-[2.1rem] place-items-center rounded-full border-[5px] border-[#eef3f8] bg-[#1b6fbd] lg:left-[9.5rem]" aria-hidden="true">
+            <span className="h-1.5 w-1.5 rounded-full bg-white" />
+          </span>
 
-          {careerSpans.map((span) => {
-            const item = experience[span.index];
-
-            if (!item) {
-              return null;
-            }
-
-            const isActive = span.index === activeIndex;
-
-            return (
-              <div
-                key={item.company}
-                style={{
-                  left: `${span.start}%`,
-                  width: `calc(${span.end - span.start}% - 0.85rem)`
-                }}
-                className={`absolute ${span.lane === "top" ? "top-[4rem]" : "top-[16rem]"}`}
-              >
-                <span
-                  className={`absolute -top-[1.18rem] left-0 z-10 h-3.5 w-3.5 rounded-full border-4 border-[#f5f5f7] ${
-                    isActive ? "bg-[#69d9ff]" : "bg-[#141416]"
-                  }`}
-                  aria-hidden="true"
-                />
-                <RoleCard item={item} isActive={isActive} onSelect={() => setActiveIndex(span.index)} className="min-h-[10.5rem] w-full" />
+          <article className="rounded-[24px] border border-[#d9e2eb] bg-white p-5 shadow-[0_16px_40px_rgba(49,73,103,0.055)] sm:p-7 lg:p-8">
+            <div className="flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
+              <div className="flex min-w-0 items-center gap-4">
+                <span className="relative grid h-12 w-12 shrink-0 place-items-center overflow-hidden rounded-2xl border border-[#e1e7ee] bg-[#f6f8fb]">
+                  <Image src={role.logo} alt="" fill sizes="48px" className="object-contain p-1.5" />
+                </span>
+                <div className="min-w-0">
+                  <h3 className="text-xl font-semibold tracking-[-0.045em] text-[#172033] sm:text-2xl">{role.company}</h3>
+                  <p className="mt-1 text-sm font-medium leading-snug tracking-[-0.015em] text-[#58687e] sm:text-base">{role.role}</p>
+                </div>
               </div>
-            );
-          })}
-        </div>
-      </div>
+              <a
+                href={role.website}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex w-fit items-center gap-1 text-sm font-semibold tracking-[-0.02em] text-[#1b6fbd] transition-colors hover:text-[#123f73]"
+              >
+                Company <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+              </a>
+            </div>
 
-      <div className="mt-5 rounded-[20px] bg-white p-6 sm:flex sm:items-center sm:justify-between sm:gap-8 sm:p-7" aria-live="polite">
-        <div>
-          <p className="text-sm font-semibold tracking-[-0.02em] text-[#141416]">{activeRole.company}</p>
-          <p className="mt-1 text-sm text-black/55">Selected role</p>
-        </div>
-        <ul className="mt-5 grid gap-3 text-sm font-medium tracking-[-0.02em] text-black/70 sm:mt-0 sm:grid-cols-2 sm:gap-x-8">
-          {activeRole.highlights.map((highlight) => (
-            <li key={highlight} className="flex gap-2">
-              <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#0f7a68]" aria-hidden="true" />
-              {highlight}
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
+            <p className="mt-6 max-w-3xl text-base leading-relaxed tracking-[-0.018em] text-[#35445a] sm:text-[1.05rem]">
+              {role.summary}
+            </p>
+
+            <ul className="mt-5 grid gap-3 border-y border-[#e7edf3] py-5 text-sm leading-relaxed text-[#415169] sm:grid-cols-2">
+              {role.highlights.map((highlight) => (
+                <li key={highlight} className="flex gap-2.5">
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-[#197c5d]" strokeWidth={2.5} aria-hidden="true" />
+                  <span>{highlight}</span>
+                </li>
+              ))}
+            </ul>
+
+            <ul className="mt-5 flex flex-wrap gap-2" aria-label={`${role.company} technologies and areas`}>
+              {role.tags.map((tag) => (
+                <li key={tag} className="rounded-full border border-[#d6e2ef] bg-[#f5f9fd] px-3 py-1.5 text-xs font-semibold tracking-[-0.01em] text-[#31516f]">
+                  {tag}
+                </li>
+              ))}
+            </ul>
+          </article>
+        </li>
+      ))}
+    </ol>
   );
 }
