@@ -1,51 +1,37 @@
 import type { Metadata, Viewport } from "next";
-import { Instrument_Serif, Inter } from "next/font/google";
 import { absoluteUrl, assetPath, siteUrl } from "@/data/paths";
 import "./globals.css";
 
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-body",
-  display: "swap"
-});
-
-const instrumentSerif = Instrument_Serif({
-  subsets: ["latin"],
-  weight: "400",
-  style: ["normal", "italic"],
-  variable: "--font-display",
-  display: "swap"
-});
-
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  applicationName: "Szilagyi Bence Portfolio",
+  applicationName: "Bence Szilágyi — Software Engineer",
   title: {
-    default: "Szilagyi Bence - AI Software Engineer",
-    template: "%s - Szilagyi Bence"
+    default: "Bence Szilágyi — Software Engineer",
+    template: "%s — Bence Szilágyi"
   },
   description:
-    "AI software engineer and fullstack builder specializing in autonomous agent systems, privacy-first iOS apps, and health data products.",
+    "Software engineer building AI systems, native iOS products, and the software behind them.",
   keywords: [
     "Szilagyi Bence",
     "Bence Szilagyi",
     "AI Software Engineer",
-    "Fullstack Developer",
+    "Full-stack Developer",
     "iOS Developer",
     "SwiftUI",
     "HealthKit",
     "AI Agents",
     "LangChain",
+    "WebRTC",
+    "Core ML",
     "Portfolio"
   ],
-  authors: [{ name: "Szilagyi Bence", url: absoluteUrl("/") }],
-  creator: "Szilagyi Bence",
-  publisher: "Szilagyi Bence",
+  authors: [{ name: "Bence Szilágyi", url: absoluteUrl("/") }],
+  creator: "Bence Szilágyi",
+  publisher: "Bence Szilágyi",
   category: "technology",
   alternates: {
     canonical: absoluteUrl("/")
   },
-  manifest: assetPath("/manifest.webmanifest"),
   icons: {
     icon: assetPath("/favicon.svg"),
     shortcut: assetPath("/favicon.svg"),
@@ -66,31 +52,31 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_GB",
     url: absoluteUrl("/"),
-    siteName: "Szilagyi Bence",
-    title: "Szilagyi Bence - AI Software Engineer",
+    siteName: "Bence Szilágyi",
+    title: "Bence Szilágyi — Software Engineer",
     description:
-      "AI software engineer and fullstack builder creating autonomous agents, privacy-first iOS apps, and health data products.",
+      "AI systems, native iOS products, and the software behind them.",
     images: [
       {
-        url: assetPath("/images/hero-poster.avif"),
+        url: absoluteUrl("/og.png"),
         width: 1200,
         height: 630,
-        alt: "Szilagyi Bence portfolio hero artwork"
+        alt: "Bence Szilágyi portfolio"
       }
     ]
   },
   twitter: {
     card: "summary_large_image",
-    title: "Szilagyi Bence - AI Software Engineer",
+    title: "Bence Szilágyi — Software Engineer",
     description:
-      "Autonomous agents, privacy-first iOS apps, and fullstack health data products.",
+      "AI systems, native iOS products, and the software behind them.",
     creator: "@31b4_",
-    images: [assetPath("/images/hero-poster.avif")]
+    images: [absoluteUrl("/og.png")]
   },
   appleWebApp: {
     capable: true,
-    title: "Szilagyi Bence",
-    statusBarStyle: "black-translucent"
+    title: "Bence Szilágyi",
+    statusBarStyle: "default"
   },
   formatDetection: {
     telephone: false
@@ -101,7 +87,7 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
-  themeColor: "#0a0a0a",
+  themeColor: "#050506",
   colorScheme: "dark"
 };
 
@@ -111,11 +97,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      data-theme="dark"
-      className={`${inter.variable} ${instrumentSerif.variable}`}
-    >
+    <html lang="en">
+      <head>
+        <link rel="manifest" href={assetPath("/manifest.webmanifest")} />
+      </head>
       <body>{children}</body>
     </html>
   );

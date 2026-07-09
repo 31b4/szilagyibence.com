@@ -1,6 +1,6 @@
-# Szilagyi Bence Portfolio 2026
+# Bence Szilágyi — Portfolio
 
-A clean Next.js 14 portfolio site built from the old Astro site's content and assets.
+A focused, static Next.js 14 portfolio for Bence Szilágyi, a software engineer and product builder.
 
 ## Scripts
 

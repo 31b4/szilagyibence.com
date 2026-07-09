@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title description">
+  <title id="title">Bence Szilágyi — Software Engineer</title>
+  <desc id="description">A portfolio for Bence Szilágyi, software engineer.</desc>
+  <defs>
+    <radialGradient id="glow" cx="76%" cy="44%" r="48%">
+      <stop offset="0" stop-color="#245BFF" stop-opacity="0.58"/>
+      <stop offset="1" stop-color="#050506" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="#050506"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <g fill="#F5F5F7" font-family="Arial, Helvetica, sans-serif">
+    <rect x="60" y="52" width="34" height="34" rx="9" fill="#F5F5F7"/>
+    <text x="77" y="75" text-anchor="middle" fill="#050506" font-size="16" font-weight="700" letter-spacing="-1">BS</text>
+    <text x="112" y="75" font-size="18" font-weight="600" letter-spacing="0.2">BENCE SZILÁGYI</text>
+    <text x="1140" y="75" text-anchor="end" fill="#A1A1A6" font-size="15">SOFTWARE ENGINEER</text>
+    <text x="60" y="198" fill="#A1A1A6" font-size="19">AI SYSTEMS · NATIVE iOS PRODUCTS · FULL-STACK SOFTWARE</text>
+    <text x="60" y="320" font-size="78" font-weight="600" letter-spacing="-5">BENCE SZILÁGYI</text>
+    <text x="60" y="395" font-size="68" font-weight="600" letter-spacing="-4" fill="#D8D8DC">SOFTWARE ENGINEER.</text>
+    <path d="M60 545H1140" stroke="#FFFFFF" stroke-opacity="0.18" stroke-width="1"/>
+    <text x="60" y="584" fill="#A1A1A6" font-size="15">SONRISA · ALTEO · ORTHOGRAPH · TRACKIT · INVISO CHAT</text>
+  </g>
+</svg>

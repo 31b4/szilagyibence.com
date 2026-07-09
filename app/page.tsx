@@ -1,14 +1,16 @@
-import AppWrapper from "@/components/AppWrapper";
 import HeroSection from "@/components/HeroSection";
 import Navbar from "@/components/Navbar";
 import PortfolioSections from "@/components/PortfolioSections";
 
 export default function Home() {
   return (
-    <AppWrapper>
+    <>
+      <a className="skip-link" href="#main-content">
+        Skip to content
+      </a>
       <Navbar />
       <HeroSection />
       <PortfolioSections />
-    </AppWrapper>
+    </>
   );
 }

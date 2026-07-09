@@ -1,0 +1,16 @@
+{
+  "name": "Bence Szilágyi — Software Engineer",
+  "short_name": "Bence Szilágyi",
+  "description": "Portfolio of Bence Szilágyi, software engineer.",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#050506",
+  "theme_color": "#050506",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

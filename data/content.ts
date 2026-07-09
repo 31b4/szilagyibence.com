@@ -1,112 +1,92 @@
 import { assetPath } from "@/data/paths";
 
 export const profile = {
-  name: "Szilagyi Bence",
-  brand: "31b4",
-  email: "contact@szilagyibence.com",
+  name: "Bence Szilágyi",
+  email: "work@szilagyibence.com",
   github: "https://github.com/31b4",
   x: "https://x.com/31b4_",
   linkedin: "https://www.linkedin.com/in/benszilagyi/",
-  headline: "Building health",
-  mission:
-    "I believe every person deserves to understand their own body. I build tools that turn complex health information into clear, actionable insights.",
-  bio:
-    "Designing privacy-first health products, AI workflows, and fullstack systems that make personal data easier to trust and act on."
-};
-
-export const heroRoles = [
-  "Fullstack builder",
-  "AI engineer",
-  "Founder",
-  "Health-data maker"
-];
+  role: "Software Engineer",
+  focus: "AI systems, native iOS products, and the software behind them.",
+  location: "Budapest, Hungary",
+  availability: "Open to remote roles across CET / CST"
+} as const;
 
 export const projects = [
   {
     title: "TrackIt",
-    status: "App Store",
-    platform: "iOS",
-    url: "https://trackit.szilagyibence.com",
+    eyebrow: "Health tracking for iPhone",
+    role: "Co-founder · iOS & backend engineer",
+    year: "2025",
     description:
-      "A privacy-first body metrics tracker for iPhone. Track measurements, sync with Apple Health, and see progress without fighting spreadsheets.",
+      "Privacy-first health tracking with Apple Health sync and 15+ body metrics.",
     images: [assetPath("/images/trackit1.png"), assetPath("/images/trackit2.png")],
-    accent: "blue",
-    features: [
-      {
-        title: "15+ metrics"
-      },
-      {
-        title: "Apple Health sync"
-      },
-      {
-        title: "Progress photos"
-      }
-    ],
-    stack: ["SwiftUI", "HealthKit", "SwiftData"]
+    highlights: ["15+ body metrics", "Apple Health sync", "App Store"],
+    stack: ["Swift", "SwiftUI", "HealthKit", "Swift Charts", "Core Data"],
+    url: "https://trackit.szilagyibence.com"
+  }
+] as const;
+
+export const projectNotes = [
+  {
+    title: "Inviso Chat",
+    eyebrow: "Secure messaging with on-device AI",
+    role: "Co-founder · iOS & backend engineer",
+    year: "2025",
+    description:
+      "Privacy-first messaging with peer-to-peer real-time communication and on-device processing.",
+    highlights: ["WebRTC peer-to-peer", "On-device AI", "DTLS encryption"],
+    stack: ["SwiftUI", "WebRTC", "Core ML", "DTLS encryption"]
   }
 ] as const;
 
 export const experience = [
   {
-    company: "Sonrisa",
-    logo: assetPath("/images/sonrisa.png"),
-    website: "https://sonrisa.hu/en",
-    role: "AI Software Engineer",
-    dates: "2025 - Present",
-    status: "Current",
-    description:
-      "Built autonomous AI agents executing multi-step workflows and sub-agent architectures. Optimized prompt engineering to reduce token costs by 20% while increasing response accuracy.",
-    highlights: [
-      "Autonomous AI agents",
-      "Sub-agent workflows",
-      "Prompt optimization"
-    ],
-    stack: [
-      "Java",
-      "Python",
-      "LLMs",
-      "OpenAI API",
-      "Anthropic API",
-      "LangChain",
-      "FastAPI",
-      "Docker",
-      "Redis",
-      "Temporal.io"
-    ]
+    company: "OrthoGraph",
+    logo: assetPath("/images/orthograph.png"),
+    website: "https://www.orthograph.com/",
+    role: "Full-stack Developer",
+    dates: "2024 — 2025",
+    summary: "Maintained and containerised a Laravel backend.",
+    highlights: ["Laravel backend", "Docker containerisation"]
   },
   {
     company: "ALTEO Nyrt.",
     logo: assetPath("/images/alteo.jpeg"),
     website: "https://alteo.hu/?lang=en",
-    role: "Software Developer / IT Specialist - E-mobility",
-    dates: "2025 - 2026",
-    status: "E-mobility",
-    description:
-      "Developed internal software tools and web applications to support e-mobility operations and EV charger management.",
-    highlights: [
-      "EV charger management",
-      "Internal tools",
-      "Operational reporting"
-    ],
-    stack: [
-      "Java",
-      "Python",
-      "JavaScript",
-      "SQL",
-      "Excel workflows",
-      "Web apps"
-    ]
+    role: "Software Developer / IT Specialist — E-mobility",
+    dates: "2025 — 2026",
+    summary: "Built internal software and web tools for EV charger operations.",
+    highlights: ["Charger administration", "Reporting & maintenance tracking"]
   },
   {
-    company: "OrthoGraph",
-    logo: assetPath("/images/orthograph.png"),
-    website: "https://www.orthograph.com/",
-    role: "Fullstack Developer",
-    dates: "2024 - 2025",
-    status: "Fullstack",
-    description:
-      "Maintained a Laravel-based backend and containerized it with Docker.",
-    highlights: ["Laravel backend", "Dockerized services", "PHP delivery"],
-    stack: ["PHP", "Laravel", "Docker", "Docker Compose", "Git"]
+    company: "Sonrisa",
+    logo: assetPath("/images/sonrisa.png"),
+    website: "https://sonrisa.hu/en",
+    role: "AI Software Engineer",
+    dates: "2026 — Present",
+    summary: "Building autonomous AI workflows and multi-agent systems.",
+    highlights: ["Multi-step & sub-agent workflows", "20% lower token costs with improved accuracy"]
   }
 ] as const;
+
+export const toolkit = [
+  {
+    title: "AI systems",
+    items: "Python · FastAPI · LangChain · LLM APIs · Redis · Temporal"
+  },
+  {
+    title: "iOS",
+    items: "Swift · SwiftUI · HealthKit · WebRTC · Core ML"
+  },
+  {
+    title: "Backend",
+    items: "Java · PHP / Laravel · Docker · SQL"
+  }
+] as const;
+
+export const education = {
+  degree: "BSc in Computer Science",
+  school: "University of Pécs",
+  year: "2026"
+} as const;
