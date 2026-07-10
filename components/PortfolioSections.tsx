@@ -1,6 +1,7 @@
 import ExperienceTimeline from "@/components/ExperienceTimeline";
 import ProjectCard from "@/components/ProjectCard";
 import Reveal from "@/components/Reveal";
+import { ArrowUpRight, Github, Linkedin } from "lucide-react";
 import { education, profile, projects, toolkit } from "@/data/content";
 
 export default function PortfolioSections() {
@@ -86,8 +87,12 @@ export default function PortfolioSections() {
             <div className="mt-16 flex flex-col justify-between gap-5 border-t border-[#cfdce8] pt-6 text-sm tracking-[-0.01em] text-[#607289] sm:mt-20 sm:flex-row sm:items-center">
               <p>© 2026 Bence Szilágyi</p>
               <div className="flex flex-wrap gap-x-6 gap-y-3 text-[#35516f]">
-                <a href={profile.linkedin} target="_blank" rel="noreferrer" className="transition-colors hover:text-[#172033]">LinkedIn ↗</a>
-                <a href={profile.github} target="_blank" rel="noreferrer" className="transition-colors hover:text-[#172033]">GitHub · 31b4 ↗</a>
+                <a href={profile.linkedin} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 transition-colors hover:text-[#172033]">
+                  <Linkedin className="h-4 w-4" aria-hidden="true" /> LinkedIn <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
+                </a>
+                <a href={profile.github} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 transition-colors hover:text-[#172033]">
+                  <Github className="h-4 w-4" aria-hidden="true" /> GitHub · 31b4 <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
+                </a>
                 <a href="#home" className="transition-colors hover:text-[#172033]">Back to top ↑</a>
               </div>
             </div>

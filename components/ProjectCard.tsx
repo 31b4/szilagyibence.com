@@ -65,8 +65,8 @@ export default function ProjectCard({ project }: ProjectCardProps) {
       </div>
 
       <figure
-        className={`relative min-h-[22rem] overflow-hidden sm:min-h-[31rem] lg:min-h-full ${
-          isInviso ? "bg-[#eff4fa]" : "bg-[#eef7f1]"
+        className={`relative min-h-[22rem] sm:min-h-[31rem] lg:min-h-full ${
+          isInviso ? "bg-[#eff4fa]" : "overflow-hidden bg-[#eef7f1]"
         }`}
         aria-label={`${project.title} product screens`}
       >
@@ -76,12 +76,13 @@ export default function ProjectCard({ project }: ProjectCardProps) {
               <LockKeyhole className="h-3.5 w-3.5 text-[#1b6fbd]" aria-hidden="true" />
               P2P · encrypted
             </div>
+            <div className="pointer-events-none absolute bottom-[7%] left-[59%] z-0 h-12 w-[54%] -translate-x-1/2 rounded-[100%] bg-[#506783]/20 blur-[26px] sm:bottom-[8%] sm:h-20 sm:blur-[36px]" aria-hidden="true" />
             <Image
               src={project.image}
               alt={project.imageAlt}
               fill
               sizes="(min-width: 1024px) 50vw, 100vw"
-              className="object-contain object-center p-4 sm:p-7 lg:p-5"
+              className="z-10 object-contain object-center p-5 pb-12 drop-shadow-[0_20px_18px_rgba(38,55,78,0.16)] sm:p-8 sm:pb-16 lg:p-7 lg:pb-16"
             />
           </>
         ) : (
@@ -94,7 +95,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
               width={741}
               height={1517}
               sizes="(min-width: 1024px) 330px, (min-width: 640px) 275px, 210px"
-              className="absolute bottom-[-4%] right-[23%] z-20 w-[46%] rotate-[5deg] drop-shadow-[0_28px_32px_rgba(20,52,35,0.24)] transition-transform duration-500 ease-out group-hover:-translate-y-3 group-hover:rotate-[2deg]"
+              className="absolute bottom-[-4%] right-[23%] z-20 w-[46%] rotate-[5deg] drop-shadow-[0_28px_32px_rgba(20,52,35,0.24)] transition-transform duration-500 ease-out group-hover:-translate-y-3 group-hover:rotate-[2deg] lg:bottom-[1%] lg:right-[29%] lg:w-[39%]"
             />
           </>
         )}

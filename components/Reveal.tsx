@@ -10,6 +10,7 @@ type RevealProps = {
 
 export default function Reveal({ children, className = "", delay = 0 }: RevealProps) {
   const elementRef = useRef<HTMLDivElement>(null);
+  const [isReady, setIsReady] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -24,9 +25,11 @@ export default function Reveal({ children, className = "", delay = 0 }: RevealPr
         if (entry?.isIntersecting) {
           setIsVisible(true);
           observer.disconnect();
+        } else {
+          setIsReady(true);
         }
       },
-      { threshold: 0.12 }
+      { rootMargin: "0px 0px -6% 0px", threshold: 0.08 }
     );
 
     observer.observe(element);
@@ -38,7 +41,8 @@ export default function Reveal({ children, className = "", delay = 0 }: RevealPr
       ref={elementRef}
       className={`reveal ${className}`}
       data-visible={isVisible}
-      style={{ animationDelay: `${delay}ms` }}
+      data-ready={isReady}
+      style={{ transitionDelay: isVisible ? `${delay}ms` : "0ms" }}
     >
       {children}
     </div>
